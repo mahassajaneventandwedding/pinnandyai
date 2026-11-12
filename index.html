@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinn &amp; Yai · Wedding Guest Guide by Mahassajan</title>
+<meta name="description" content="Pinn & Yai · Friday 13 November 2026 · Rin at Raintree — find your seat">
+<meta property="og:title" content="Pinn & Yai · 13.11.2026">
+<meta property="og:description" content="ค้นหาที่นั่งของคุณ · Rin at Raintree">
+<meta property="og:image" content="img/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600&family=Pinyon+Script&family=Prompt:wght@200;300;400;500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mauve:#C9A8AF;      /* Mahassajan CI */
+  --mauve-deep:#9C7880;
+  --plum:#5C4148;
+  --ink:#4A3A3E;
+  --muted:#8A7A7E;
+  --ivory:#FBF8F6;
+  --blush:#F4EBEC;
+  --line:#E8DADD;
+  --terra:#C8734A;      /* entrance / registration */
+  --navy:#1B3661;       /* couple's invitation accent */
+  --butter:#FCEC97;     /* couple's invitation accent */
+  --pin:#CF712B;        /* your seat (from the card's theme palette) */
+  --radius:22px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Prompt',sans-serif;font-weight:300;color:var(--ink);background:var(--ivory);-webkit-font-smoothing:antialiased;line-height:1.6}
+img{display:block;max-width:100%}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.eyebrow{font-family:'Josefin Sans',sans-serif;font-weight:300;letter-spacing:.32em;text-transform:uppercase;font-size:12px}
+
+/* preview ribbon */
+.demo{background:var(--plum);color:#fff;text-align:center;font-size:12.5px;padding:7px 12px;letter-spacing:.02em}
+.demo b{font-family:'Josefin Sans';font-weight:600;letter-spacing:.2em;margin-right:6px}
+
+/* top bar */
+.topbar{display:flex;align-items:center;justify-content:center;gap:12px;padding:16px 20px;background:var(--ivory);border-bottom:1px solid var(--line)}
+.topbar img{height:26px}
+.topbar span{font-size:10px;color:var(--mauve-deep)}
+
+/* hero */
+.hero{position:relative;min-height:90vh;display:flex;align-items:flex-end;justify-content:center;color:#fff;text-align:center;overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(92,65,72,.02) 0%,rgba(92,65,72,.10) 38%,rgba(110,78,86,.80) 76%,rgba(92,65,72,.95) 100%)}
+.hero-in{position:relative;z-index:1;padding:0 20px 56px;max-width:640px}
+.hero .eyebrow{color:#fff;opacity:.9}
+.hero h1{font-family:'Pinyon Script',cursive;font-weight:400;font-size:clamp(68px,16vw,118px);line-height:1;margin:14px 0 6px;text-shadow:0 2px 24px rgba(60,40,45,.35)}
+.hero h1 .amp{font-size:.6em;color:var(--butter);padding:0 .08em}
+.hero .names{font-family:'Cormorant Garamond',serif;font-size:18px;letter-spacing:.06em;opacity:.95}
+.hero .rule{width:64px;height:1px;background:rgba(255,255,255,.6);margin:20px auto}
+.hero .when{font-family:'Josefin Sans';font-weight:400;letter-spacing:.28em;font-size:13px;text-transform:uppercase}
+.hero .where{font-size:14px;opacity:.9;margin-top:6px}
+.countdown{display:flex;justify-content:center;gap:10px;margin-top:26px}
+.cd{min-width:74px;padding:12px 8px 10px;border-radius:16px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.cd b{display:block;font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:34px;line-height:1.1;font-variant-numeric:tabular-nums}
+.cd span{display:block;font-size:12px;opacity:.95;margin-top:2px}
+.cd small{display:block;font-family:'Josefin Sans',sans-serif;letter-spacing:.18em;text-transform:uppercase;font-size:9px;opacity:.75}
+.cd-done{display:none;margin-top:26px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px}
+@media (max-width:400px){.cd{min-width:64px}.cd b{font-size:28px}}
+.hero .cta{display:inline-flex;align-items:center;gap:10px;margin-top:28px;background:#fff;color:var(--plum);text-decoration:none;padding:14px 28px;border-radius:999px;font-weight:400;font-size:15px;box-shadow:0 8px 30px rgba(60,40,45,.25)}
+.hero .cta svg{width:16px;height:16px}
+
+section{padding:64px 0}
+.sec-head{text-align:center;margin-bottom:28px}
+.sec-head .eyebrow{color:var(--mauve-deep)}
+.sec-head h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:38px;color:var(--plum);line-height:1.15;margin-top:6px}
+.sec-head p{color:var(--muted);font-size:14.5px;margin-top:8px}
+.heart-div{width:30px;margin:0 auto 14px;opacity:.9}
+
+/* finder */
+#finder{background:linear-gradient(180deg,var(--blush),var(--ivory))}
+.search{position:relative}
+.search input{width:100%;font-family:'Prompt';font-weight:300;font-size:18px;color:var(--ink);padding:18px 52px 18px 54px;border-radius:999px;border:1.5px solid var(--line);background:#fff;outline:none;transition:border-color .2s, box-shadow .2s;box-shadow:0 6px 24px rgba(156,120,128,.10);-webkit-appearance:none}
+.search input:focus{border-color:var(--mauve);box-shadow:0 0 0 5px rgba(201,168,175,.25)}
+.search input::placeholder{color:#B9AAAD}
+.search input::-webkit-search-cancel-button{display:none}
+.search .ico{position:absolute;left:20px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--mauve-deep)}
+.search .clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:0;background:var(--blush);color:var(--plum);font-size:16px;cursor:pointer;display:none}
+.hint{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+.matches{list-style:none;margin-top:14px;display:grid;gap:8px}
+.matches li button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:16px;padding:13px 18px;font-family:'Prompt';font-weight:300;font-size:16px;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s}
+.matches li button:hover{background:var(--blush);border-color:var(--mauve)}
+.matches .tag{font-family:'Josefin Sans';font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mauve-deep);white-space:nowrap}
+.matches .sub{display:block;font-size:12.5px;color:var(--muted)}
+.empty{text-align:center;color:var(--muted);font-size:14px;margin-top:16px;background:#fff;border:1px dashed var(--line);border-radius:16px;padding:16px}
+
+.result{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px 22px;box-shadow:0 14px 40px rgba(156,120,128,.12);display:none;animation:rise .35s ease}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.result .who{text-align:center}
+.result .who .eyebrow{color:var(--mauve-deep);font-size:11px}
+.result .who h3{font-weight:400;font-size:28px;color:var(--plum);margin-top:4px}
+.chips{display:flex;justify-content:center;gap:12px;margin:18px 0 10px}
+.chip{min-width:118px;border-radius:18px;padding:12px 18px;text-align:center}
+.chip small{display:block;font-family:'Josefin Sans';letter-spacing:.24em;text-transform:uppercase;font-size:10.5px;opacity:.85}
+.chip strong{display:block;font-family:'Josefin Sans';font-weight:400;font-size:34px;line-height:1.15;letter-spacing:.04em}
+.chip.t{background:var(--plum);color:#fff}
+.chip.s{background:var(--mauve);color:#fff}
+.tname{text-align:center;color:var(--plum);font-size:15.5px;font-weight:400;margin-bottom:2px}
+.kid-tag{font-style:normal;font-size:11px;background:#F6EADB;color:#9A5A34;border-radius:999px;padding:1px 8px;margin-left:4px;vertical-align:2px}
+.mates li.me .kid-tag{background:#fff}
+.seat-desc{text-align:center;color:var(--muted);font-size:14px}
+.staff-note{display:none;margin-top:12px;background:#FFF6EF;border:1px solid #F1D9C6;color:#8A4D2C;border-radius:12px;padding:10px 14px;font-size:13.5px}
+.tabs{display:flex;background:var(--blush);border-radius:999px;padding:4px;margin:20px 0 16px}
+.tabs button{flex:1;border:0;background:transparent;border-radius:999px;padding:10px 6px;font-family:'Prompt';font-size:14.5px;color:var(--plum);cursor:pointer;font-weight:300}
+.tabs button.on{background:#fff;box-shadow:0 2px 10px rgba(92,65,72,.12);font-weight:400}
+.tabs button small{display:block;font-size:11.5px;color:var(--muted)}
+
+.plan-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:16px;border:1px solid var(--line);background:#FDFBFA}
+.plan-scroll svg{display:block;min-width:760px;width:100%;height:auto}
+.plan-hint{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;font-size:12px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+
+.mates{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+.mates li small{color:var(--muted);font-size:11px}
+.mates li{background:var(--ivory);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:14px;display:flex;gap:10px;align-items:center}
+.mates li b{font-family:'Josefin Sans';font-weight:400;font-size:12px;color:#fff;background:var(--mauve);border-radius:50%;width:24px;height:24px;display:grid;place-items:center;flex:none}
+.mates li.me{background:var(--plum);color:#fff;border-color:var(--plum)}
+.mates li.me b{background:#fff;color:var(--plum)}
+.mates li.vacant{color:#C2B4B7;border-style:dashed}
+
+/* SVG plan (outdoor lawn) */
+.lawn{fill:#EEF2E7;stroke:#D5DEC8;stroke-width:2}
+.tree{fill:#DCE5D0;stroke:#CBD7BC;stroke-width:1.5}
+.walk{fill:#F1EEEC}
+.lbl{font-family:'Josefin Sans';font-size:15px;letter-spacing:.12em;fill:var(--muted);text-transform:uppercase}
+.lbl-th{font-family:'Prompt';font-size:14px;fill:var(--muted)}
+.tb{fill:#EFE4E6;stroke:#D8C6CA;stroke-width:1.2}
+.tb-name{font-family:'Josefin Sans';font-weight:600;fill:var(--plum);text-anchor:middle;dominant-baseline:central}
+.ch{fill:#fff;stroke:#CDB8BD;stroke-width:1.2}
+.ch.taken{fill:#E2CDD2;stroke:#CDB0B7}
+.ch.kid{fill:#F3D9C4;stroke:#D9A986}
+.tg.dim{opacity:.35}
+.tg.hl .tb{fill:var(--plum);stroke:var(--plum)}
+.tg.hl .tb-name.in{fill:#fff}
+.tg.hl .tb-name.out{fill:var(--plum)}
+.tg.hl .ch.taken{fill:var(--mauve);stroke:var(--mauve-deep)}
+.ring{fill:none;stroke:var(--mauve-deep);stroke-width:2;stroke-dasharray:6 4}
+.me-seat{fill:var(--pin);stroke:#fff;stroke-width:2}
+.pulse{fill:none;stroke:var(--pin);stroke-width:2;animation:pulse 1.6s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes pulse{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
+.here{fill:var(--terra)}
+.ct{fill:#7A4A3A;opacity:.75}
+
+/* invitation */
+.invite{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.invite .mono{display:grid;place-items:center;padding:28px 20px;background:repeating-linear-gradient(90deg,#FEF8D8 0 26px,#fff 26px 52px);border-bottom:1px solid var(--line)}
+.invite .mono img{width:min(260px,70%)}
+.invite .txt{padding:34px 24px 36px;text-align:center}
+.invite .lead{font-family:'Josefin Sans';letter-spacing:.22em;text-transform:uppercase;font-size:12px;color:var(--muted);line-height:1.9;margin-bottom:20px}
+.couple .en{font-family:'Josefin Sans';font-weight:400;letter-spacing:.18em;font-size:24px;color:var(--navy);line-height:1.25}
+.couple .sur{font-family:'Josefin Sans';letter-spacing:.24em;font-size:12.5px;color:var(--navy);opacity:.85}
+.rings{display:flex;align-items:center;gap:12px;justify-content:center;margin:16px auto;max-width:280px}
+.rings::before,.rings::after{content:"";flex:1;height:1px;background:var(--line)}
+.rings svg{width:28px;color:var(--mauve-deep)}
+.invite .meta{margin-top:24px;font-size:14.5px;color:var(--ink)}
+.invite .meta b{font-weight:400;color:var(--plum)}
+
+/* info cards */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-decoration:none;color:inherit;display:block;transition:transform .15s,box-shadow .15s}
+a.card:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(156,120,128,.15)}
+.card .k{font-family:'Josefin Sans';letter-spacing:.24em;text-transform:uppercase;font-size:11px;color:var(--mauve-deep)}
+.card h4{font-weight:400;font-size:18px;color:var(--plum);margin:6px 0 4px;line-height:1.35}
+.card p{font-size:13.5px;color:var(--muted)}
+.card .go{margin-top:12px;font-size:13.5px;color:var(--mauve-deep);font-weight:400}
+.card.wide{grid-column:1/-1}
+.tl{list-style:none;margin-top:10px}
+.tl li{display:grid;grid-template-columns:70px 1fr;gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.tl li:last-child{border-bottom:0}
+.tl .t{font-family:'Josefin Sans';font-size:18px;color:var(--plum)}
+.tl .t2{font-size:15px;color:var(--ink)}
+.tl .t2 small{display:block;color:var(--muted);font-size:12.5px}
+.dress{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--plum);line-height:1.45;margin-top:6px}
+.swatches{display:flex;flex-wrap:wrap;gap:10px;margin:14px 0 8px}
+.swatches i{width:30px;height:30px;border-radius:50%;border:1px solid rgba(0,0,0,.06)}
+
+/* film (looping prewedding slideshow) */
+#film{padding:56px 0 24px}
+.film{position:relative;max-width:520px;margin:0 auto;aspect-ratio:4/5;border-radius:26px;overflow:hidden;background:#2E2326;box-shadow:0 18px 44px rgba(92,65,72,.22);cursor:pointer}
+.film .slide{position:absolute;inset:0;opacity:0;transition:opacity 1.4s ease}
+.film .slide.on{opacity:1}
+.film .bg{position:absolute;inset:-30px;width:calc(100% + 60px);height:calc(100% + 60px);max-width:none;object-fit:cover;filter:blur(22px) brightness(.75)}
+.film .fg{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.film .slide.on .fg{animation:kb 7s ease-out forwards}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.07)}}
+.film .bar{position:absolute;left:16px;right:16px;bottom:14px;display:flex;gap:4px;z-index:2}
+.film .bar i{flex:1;height:2px;border-radius:2px;background:rgba(255,255,255,.35);overflow:hidden}
+.film .bar i b{display:block;height:100%;width:0;background:#fff}
+.film .bar i.done b{width:100%}
+.film .bar i.run b{animation:fill linear forwards}
+.film.paused .bar i.run b{animation-play-state:paused}
+@keyframes fill{to{width:100%}}
+.film .cap{position:absolute;left:0;right:0;top:18px;text-align:center;z-index:2;color:#fff;font-family:'Pinyon Script',cursive;font-size:30px;text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.film-hint{text-align:center;font-size:12px;color:var(--muted);margin-top:10px}
+@media (prefers-reduced-motion:reduce){.film .slide.on .fg{animation:none}}
+
+footer{background:var(--mauve);color:#fff;text-align:center;padding:52px 20px 40px;margin-top:40px}
+footer img.logo{width:min(240px,62vw);margin:0 auto}
+footer img.tl2{width:150px;margin:14px auto 0;opacity:.95}
+footer p{font-size:12.5px;opacity:.9;margin-top:22px;line-height:1.7}
+
+@media (max-width:560px){
+  .cards{grid-template-columns:1fr}
+  .sec-head h2{font-size:32px}
+  .couple .en{font-size:20px;letter-spacing:.14em}
+}
+</style>
+</head>
+<body>
+
+<div class="demo" id="preview"><b>PREVIEW</b>ฉบับตัวอย่าง · ข้อมูลที่นั่งกำลังอัปเดต</div>
+
+<header class="topbar">
+  <img src="img/logo-mauve.png" alt="Mahassajan">
+  <span class="eyebrow">Wedding Planner</span>
+</header>
+
+<section class="hero" style="padding:0">
+  <img src="img/hero.jpg" alt="Pinn & Yai pre-wedding">
+  <div class="hero-in">
+    <div class="eyebrow">The Wedding Celebration of</div>
+    <h1>Pinn<span class="amp">&amp;</span>Yai</h1>
+    <div class="names">Thitinan Jirahirunsathien · Paramate Thanyalakpark</div>
+    <div class="rule"></div>
+    <div class="when">Friday · 13 November 2026 · 18:00</div>
+    <div class="where">Sai Hall · Rin at Raintree</div>
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="cd"><b id="cd-d">0</b><span>วัน<small>Days</small></span></div>
+      <div class="cd"><b id="cd-h">00</b><span>ชั่วโมง<small>Hours</small></span></div>
+      <div class="cd"><b id="cd-m">00</b><span>นาที<small>Minutes</small></span></div>
+      <div class="cd"><b id="cd-s">00</b><span>วินาที<small>Seconds</small></span></div>
+    </div>
+    <div class="cd-done" id="cd-done">Today is the day · ขอบคุณที่มาร่วมเป็นเกียรติค่ะ</div>
+    <a class="cta" href="#finder">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      ค้นหาที่นั่งของคุณ
+    </a>
+  </div>
+</section>
+
+<!-- FIND YOUR SEAT -->
+<section id="finder">
+  <div class="wrap">
+    <div class="sec-head">
+      <img class="heart-div" src="img/heart-mauve.png" alt="">
+      <div class="eyebrow">Find your seat</div>
+      <h2>ค้นหาที่นั่งของคุณ</h2>
+      <p>พิมพ์ชื่อเล่นหรือชื่อจริง ภาษาไทยหรืออังกฤษก็ได้</p>
+    </div>
+    <div class="search">
+      <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="search" autocomplete="off" placeholder="เช่น สุนี, ยุพา, เจ็กจิว" aria-label="ค้นหาชื่อแขก">
+      <button class="clear" id="clear" aria-label="ล้าง">✕</button>
+    </div>
+    <div class="hint" id="hint">พิมพ์แค่บางส่วนก็เจอ ถ้ามีชื่อซ้ำ เลือกจากรายการได้เลย</div>
+    <ul class="matches" id="matches"></ul>
+    <div class="empty" id="empty" style="display:none">ยังไม่พบชื่อนี้ ลองพิมพ์ชื่อเล่น ชื่อจริง หรือชื่อภาษาอังกฤษอีกครั้ง<br>หรือติดต่อทีม Mahassajan ที่โต๊ะลงทะเบียนได้เลยค่ะ</div>
+
+    <div class="result" id="result">
+      <div class="who">
+        <div class="eyebrow">Welcome</div>
+        <h3 id="r-name"></h3>
+      </div>
+      <div class="chips">
+        <div class="chip t"><small>Table · โต๊ะ</small><strong id="r-table"></strong></div>
+        <div class="chip s" id="r-seat-chip"><small>Seat · ที่นั่ง</small><strong id="r-seat"></strong></div>
+      </div>
+      <div class="tname" id="r-tname"></div>
+      <div class="seat-desc" id="r-desc"></div>
+      <div class="staff-note" id="r-note"></div>
+
+      <div class="tabs">
+        <button class="on" data-tab="plan">โต๊ะอยู่ตรงไหน<small>ผังงาน</small></button>
+        <button data-tab="mates">ใครนั่งโต๊ะเดียวกัน<small id="r-count"></small></button>
+      </div>
+      <div id="tab-plan">
+        <div class="plan-scroll" id="plan-scroll"></div>
+        <div class="plan-hint">เลื่อนซ้าย–ขวาเพื่อดูผังทั้งงาน</div>
+        <div class="legend">
+          <span><i style="background:var(--pin)"></i>ที่นั่งของคุณ</span>
+          <span><i style="background:var(--plum)"></i>โต๊ะของคุณ</span>
+          <span><i style="background:#7A4A3A;opacity:.75"></i>โต๊ะค็อกเทล</span>
+          <span><i style="background:var(--terra);border-radius:2px"></i>ลงทะเบียน</span>
+        </div>
+      </div>
+      <div id="tab-mates" style="display:none">
+        <ul class="mates" id="mates"></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INVITATION -->
+<section id="invite">
+  <div class="wrap">
+    <div class="invite">
+      <div class="mono"><img src="img/monogram.png" alt="P · Y monogram"></div>
+      <div class="txt">
+        <div class="lead">Request the honour of your presence<br>at our marriage</div>
+        <div class="couple">
+          <div class="en">THITINAN</div>
+          <div class="sur">JIRAHIRUNSATHIEN</div>
+          <div class="rings"><svg viewBox="0 0 32 18" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="11" cy="9" r="7"/><circle cx="21" cy="9" r="7"/></svg></div>
+          <div class="en">PARAMATE</div>
+          <div class="sur">THANYALAKPARK</div>
+        </div>
+        <div class="meta"><b>Sai Hall · Rin at Raintree</b><br>วันศุกร์ที่ 13 พฤศจิกายน 2569<br>18:00 น. ฉลองมงคลสมรส<br>21:00 น. ปาร์ตี้ (ค็อกเทล)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section id="details" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Event details</div>
+      <h2>รายละเอียดงาน</h2>
+    </div>
+    <div class="cards">
+      <a class="card wide" href="https://www.google.com/maps/search/?api=1&amp;query=Rin+at+Raintree" target="_blank" rel="noopener">
+        <div class="k">Venue</div>
+        <h4>Sai Hall · Rin at Raintree</h4>
+        <div class="go">เปิด Google Maps →</div>
+      </a>
+      <div class="card">
+        <div class="k">Schedule</div>
+        <ul class="tl">
+          <li><span class="t">18:00</span><span class="t2">ฉลองมงคลสมรส<small>Cocktail reception</small></span></li>
+          <li><span class="t">21:00</span><span class="t2">ปาร์ตี้ (ค็อกเทล)<small>Party</small></span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="k">Dress code · Theme</div>
+        <p class="dress">We&rsquo;ll be celebrating outdoors &mdash;<br>dress lovely, step comfortably.</p>
+        <div class="swatches" aria-label="Theme colours">
+          <i style="background:#E6AE59"></i><i style="background:#CF712B"></i><i style="background:#B65028"></i><i style="background:#797430"></i><i style="background:#86A4D6"></i><i style="background:#1B3661"></i><i style="background:#664939"></i>
+        </div>
+        <p>งานจัดกลางแจ้ง แต่งกายตามโทนสีด้านบน และสวมรองเท้าที่เดินสบาย</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILM -->
+<section id="film">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Our story</div>
+      <h2>Pinn &amp; Yai</h2>
+    </div>
+    <div class="film" id="film-box" role="img" aria-label="Pinn &amp; Yai pre-wedding film">
+      <div class="bar" id="film-bar"></div>
+    </div>
+    <div class="film-hint">แตะที่ภาพเพื่อหยุด / เล่นต่อ</div>
+  </div>
+</section>
+
+<footer>
+  <img class="logo" src="img/logo-white.png" alt="Mahassajan">
+  <img class="tl2" src="img/tagline-white.png" alt="Wedding Planner">
+  <p>Guest experience curated by Mahassajan Wedding Planner<br>หาชื่อไม่เจอ ติดต่อทีมงานที่โต๊ะลงทะเบียน</p>
+</footer>
+
+<!--
+  ===== ข้อมูลผังและแขก =====
+  แหล่งข้อมูล: รูปตารางโต๊ะ 1–3 ฝั่งเจ้าสาว (messageImage_1794466862804.jpg) — โต๊ะอื่นรอรายชื่อ
+  tables: id = เลขที่แขกใช้ค้น, label = ป้ายบนผัง, type = round (10 ที่ เลข 1 ฝั่งตรงข้ามเวที นับตามเข็มนาฬิกา)
+  in-5 / in-6 = โต๊ะ 5, 6 ในอาคาร (เลขซ้ำกับโต๊ะสนาม รอยืนยัน)
+-->
+<script type="application/json" id="seat-data">
+{"tables":[
+ {"id":"1","label":"1","name":"ฝั่งเจ้าสาว","type":"round","cap":10},
+ {"id":"2","label":"2","name":"ฝั่งเจ้าสาว","type":"round","cap":10},
+ {"id":"3","label":"VIP 3","name":"ฝั่งเจ้าสาว","type":"round","cap":10},
+ {"id":"4","label":"4","name":"—","type":"round","cap":10},
+ {"id":"5","label":"5","name":"—","type":"round","cap":10},
+ {"id":"6","label":"VIP 6","name":"—","type":"round","cap":10},
+ {"id":"7","label":"7","name":"—","type":"round","cap":10},
+ {"id":"8","label":"8","name":"—","type":"round","cap":10},
+ {"id":"9","label":"9","name":"—","type":"round","cap":10},
+ {"id":"10","label":"10","name":"—","type":"round","cap":10},
+ {"id":"in-5","label":"5","name":"ในอาคาร","type":"round","cap":10},
+ {"id":"in-6","label":"6","name":"ในอาคาร","type":"round","cap":10}
+],
+"guests":[
+ {"name":"ป๊า","table":"1","seats":[1],"kid":false,"note":""},
+ {"name":"ม๊า","table":"1","seats":[2],"kid":false,"note":""},
+ {"name":"เต้","table":"1","seats":[3],"kid":false,"note":""},
+ {"name":"คุณสุนี เหล่าอี้","table":"1","seats":[4],"kid":false,"note":""},
+ {"name":"คุณอนันดา หวังวณิชกุล","table":"1","seats":[5],"kid":false,"note":""},
+ {"name":"พ.ต.อ.ธนกฤช โภควานิช","table":"1","seats":[6,7],"kid":false,"note":""},
+ {"name":"คุณวิมลรัตน์ กุลดิลก","table":"1","seats":[8,9],"kid":false,"note":""},
+ {"name":"คุณพรรษชัย (อาแปะ)","table":"2","seats":[1,2],"kid":false,"note":""},
+ {"name":"คุณปองศักดิ์","table":"2","seats":[3],"kid":false,"note":""},
+ {"name":"คุณภูษิตา","table":"2","seats":[4],"kid":false,"note":""},
+ {"name":"คุณยุพา","table":"2","seats":[5,6],"kid":false,"note":""},
+ {"name":"คุณนฤมิตร","table":"2","seats":[7],"kid":false,"note":""},
+ {"name":"คุณวรรณพา","table":"2","seats":[8],"kid":false,"note":""},
+ {"name":"เฮียจั๊วะ","table":"2","seats":[9],"kid":false,"note":""},
+ {"name":"เฮียโจ","table":"2","seats":[10],"kid":false,"note":""},
+ {"name":"บ้านเจ็กจิว","table":"3","seats":[1,2,3,4],"kid":false,"note":""},
+ {"name":"บ้านเจ็กสมชาย","table":"3","seats":[5,6],"kid":false,"note":""},
+ {"name":"บ้านคุณสมศรี","table":"3","seats":[7,8],"kid":false,"note":""},
+ {"name":"คุณจักรกฤษณ์ องอาจวศินกุล","table":"3","seats":[9,10],"kid":false,"note":""}
+],
+"reserved":[]}
+</script>
+
+<script>
+/* ===== Countdown to 13 Nov 2026 18:00 (Bangkok, UTC+7) ===== */
+(function(){
+  const target=new Date('2026-11-13T18:00:00+07:00').getTime();
+  const $=id=>document.getElementById(id), pad=n=>String(n).padStart(2,'0');
+  function tick(){
+    let s=Math.floor((target-Date.now())/1000);
+    if(s<=0){$('countdown').style.display='none';$('cd-done').style.display='block';return;}
+    $('cd-d').textContent=Math.floor(s/86400); s%=86400;
+    $('cd-h').textContent=pad(Math.floor(s/3600)); s%=3600;
+    $('cd-m').textContent=pad(Math.floor(s/60));
+    $('cd-s').textContent=pad(s%60);
+    setTimeout(tick,1000-Date.now()%1000);
+  }
+  tick();
+})();
+</script>
+
+<script>
+/* ===== Film: looping prewedding slideshow ===== */
+(function(){
+  const files=['p01','p03','p06','p02','p04','p09','p07','p08','p11','p05','p12','p10','p14','p13','p15'];
+  const DUR=4500, box=document.getElementById('film-box'), bar=document.getElementById('film-bar');
+  const slides=files.map(f=>{
+    const d=document.createElement('div');d.className='slide';
+    d.innerHTML='<img class="bg" alt=""><img class="fg" alt="">';
+    d.dataset.src='img/'+f+'.jpg';box.insertBefore(d,bar);
+    const i=document.createElement('i');i.innerHTML='<b></b>';bar.appendChild(i);return d;});
+  const ticks=[...bar.children];
+  const load=n=>{const s=slides[n%slides.length];if(!s.dataset.ok){s.querySelectorAll('img').forEach(im=>im.src=s.dataset.src);s.dataset.ok=1;}};
+  let cur=-1,timer=null,paused=false,left=DUR,startAt=0;
+  function go(n){
+    cur=n%slides.length;load(cur);load(cur+1);
+    slides.forEach((s,k)=>s.classList.toggle('on',k===cur));
+    ticks.forEach((t,k)=>{t.className=k<cur?'done':'';const b=t.firstChild;b.style.animation='none';void b.offsetWidth;b.style.animation='';});
+    ticks[cur].className='run';ticks[cur].firstChild.style.animationDuration=DUR+'ms';
+    left=DUR;schedule();
+  }
+  function schedule(){clearTimeout(timer);startAt=Date.now();timer=setTimeout(()=>go(cur+1),left);}
+  box.addEventListener('click',()=>{
+    paused=!paused;box.classList.toggle('paused',paused);
+    if(paused){clearTimeout(timer);left-=Date.now()-startAt;}else schedule();
+  });
+  load(0);
+  const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){if(cur<0)go(0);io.disconnect();}},{rootMargin:'300px'});
+  io.observe(box);
+})();
+</script>
+
+<script>
+const DATA = JSON.parse(document.getElementById('seat-data').textContent);
+const STAFF = location.hash==='#staff';
+
+/* ===== Plan geometry: Rin at Raintree lawn (from hotel plan 13.11.26 K.Pinn K.Yai, 350 pax) ===== */
+const VBW=1300, VBH=1060;
+const GEO = {
+  '1':{x:392,y:330}, '2':{x:398,y:448}, '3':{x:496,y:276}, '4':{x:496,y:394}, '5':{x:496,y:516},
+  '6':{x:804,y:284}, '7':{x:804,y:406}, '8':{x:910,y:216}, '9':{x:910,y:330}, '10':{x:910,y:448},
+  'in-5':{x:1060,y:830}, 'in-6':{x:1170,y:760}
+};
+const TBY = {};
+DATA.tables.forEach(t=>{Object.assign(t,GEO[t.id]);TBY[t.id]=t;});
+const lab=t=>t.label||t.id;
+
+function seatPos(t,s){ // round 10: seat 1 = side away from stage, clockwise
+  const a=(90+(s-1)*36)*Math.PI/180; return [t.x+36*Math.cos(a), t.y+36*Math.sin(a)];
+}
+const seatNums=t=>Array.from({length:t.cap},(_,i)=>i+1);
+
+/* ===== Build SVG ===== */
+const NS='http://www.w3.org/2000/svg';
+function el(tag,attrs,parent,text){const e=document.createElementNS(NS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.textContent=text;if(parent)parent.appendChild(e);return e;}
+function buildPlan(){
+  const svg=el('svg',{viewBox:`0 0 ${VBW} ${VBH}`,role:'img','aria-label':'ผังงาน Rin at Raintree'});
+  // walkway to indoor hall
+  el('path',{d:'M840 560 L1010 600 L1010 660 L860 640 Z',class:'walk'},svg);
+  // lawn
+  el('path',{class:'lawn',d:'M90 120 C90 60 260 40 420 60 C560 80 700 40 860 50 C1000 60 1150 70 1160 180 C1170 300 1150 420 1110 520 C1080 600 960 620 860 600 C760 590 720 640 700 720 C680 820 600 900 470 960 C360 1010 200 1000 120 900 C60 820 60 700 70 560 C80 420 60 260 90 120 Z'},svg);
+  el('text',{x:1120,y:600,'text-anchor':'end',class:'lbl',style:'font-size:13px;fill:#9AAB86'},svg,'Lawn');
+  // trees
+  [[330,620,60],[760,58,30],[1150,560,34]].forEach(([x,y,r])=>el('circle',{cx:x,cy:y,r,class:'tree'},svg));
+  // band stage
+  el('path',{d:'M120 82 L250 82 L272 132 L196 182 L120 150 Z',fill:'#E7D3C4',stroke:'#D2B49F'},svg);
+  el('text',{x:192,y:128,'text-anchor':'middle',class:'lbl',style:'font-size:14px;fill:#7A5A48'},svg,'Band');
+  // stage
+  el('ellipse',{cx:650,cy:165,rx:84,ry:38,fill:'#F6E7A6',stroke:'#E3CC72'},svg);
+  el('text',{x:650,y:162,'text-anchor':'middle',class:'lbl',style:'font-size:18px;fill:#5C4148'},svg,'Stage');
+  el('text',{x:650,y:184,'text-anchor':'middle',class:'lbl-th',style:'font-size:13px'},svg,'เวที');
+  // LCD screens
+  el('rect',{x:930,y:104,width:130,height:16,rx:3,fill:'#CFDCEF',transform:'rotate(30 995 112)'},svg);
+  el('text',{x:1030,y:96,'text-anchor':'middle',class:'lbl',style:'font-size:11px'},svg,'LCD');
+  el('rect',{x:110,y:1022,width:130,height:16,rx:3,fill:'#CFDCEF'},svg);
+  el('text',{x:175,y:1012,'text-anchor':'middle',class:'lbl',style:'font-size:11px'},svg,'LCD');
+  // champagne tower
+  el('circle',{cx:650,cy:356,r:10,fill:'#E6AE59'},svg);
+  el('text',{x:650,y:388,'text-anchor':'middle',class:'lbl',style:'font-size:11px'},svg,'Champagne');
+  // cocktail high tables
+  [[180,226],[270,230],[160,318],[252,318],[180,406],[266,406],[154,488],[200,576],[110,576],[154,672],[100,756],[190,756],[280,756],
+   [1074,232],[1010,324],[1074,324],[1010,414],[1074,414]].forEach(([x,y])=>el('circle',{cx:x,cy:y,r:10,class:'ct'},svg));
+  // cocktail bar + bar
+  el('rect',{x:640,y:605,width:30,height:92,rx:4,fill:'#F6E7A6',stroke:'#E3CC72',transform:'rotate(22 655 651)'},svg);
+  el('text',{x:700,y:640,class:'lbl',style:'font-size:12px'},svg,'Cocktail');
+  el('rect',{x:620,y:730,width:26,height:60,rx:4,fill:'#EBCFE6',stroke:'#D7AFD0'},svg);
+  el('text',{x:660,y:768,class:'lbl',style:'font-size:12px'},svg,'Bar');
+  // food stations
+  [[244,912],[320,864],[396,812],[326,980],[390,926],[456,880],[536,850]].forEach(([x,y],i)=>
+    el('rect',{x:x-28,y:y-9,width:56,height:18,rx:4,fill:i<3?'#CDEBEE':'#F6E7A6',stroke:i<3?'#A8D6DB':'#E3CC72',transform:`rotate(-32 ${x} ${y})`},svg));
+  el('text',{x:470,y:1000,class:'lbl',style:'font-size:12px'},svg,'Food stations');
+  // indoor hall
+  el('rect',{x:960,y:650,width:320,height:390,rx:10,fill:'#fff',stroke:'#CDBDC1','stroke-width':2},svg);
+  el('text',{x:980,y:680,class:'lbl',style:'font-size:12px'},svg,'Indoor');
+  el('text',{x:980,y:700,class:'lbl-th',style:'font-size:12px'},svg,'ในอาคาร');
+  el('rect',{x:1150,y:668,width:110,height:22,rx:3,fill:'#EEE9EA'},svg);
+  el('text',{x:1205,y:684,'text-anchor':'middle',class:'lbl',style:'font-size:11px'},svg,'Painting');
+  el('rect',{x:980,y:905,width:150,height:22,rx:3,fill:'#F6E7A6'},svg);
+  el('text',{x:1055,y:921,'text-anchor':'middle',class:'lbl',style:'font-size:11px;fill:#5C4148'},svg,'Thai Buffet');
+  el('rect',{x:1130,y:978,width:136,height:46,rx:3,fill:'#F6E7A6'},svg);
+  el('text',{x:1198,y:998,'text-anchor':'middle',class:'lbl',style:'font-size:10.5px;fill:#5C4148'},svg,'Engagement');
+  el('text',{x:1198,y:1014,'text-anchor':'middle',class:'lbl',style:'font-size:10.5px;fill:#5C4148'},svg,'& Backdrop');
+  el('rect',{x:930,y:612,width:120,height:24,rx:4,fill:'#F6E7A6'},svg);
+  el('text',{x:990,y:629,'text-anchor':'middle',class:'lbl',style:'font-size:11px;fill:#5C4148'},svg,'Photobooth');
+  // registration / entrance
+  el('rect',{x:34,y:270,width:28,height:200,rx:4,class:'here'},svg);
+  el('text',{x:52,y:370,'text-anchor':'middle',class:'lbl',style:'fill:#fff;font-size:12px',transform:'rotate(-90 52 370)'},svg,'Register');
+  el('path',{d:'M6 360 l16 10 l-16 10 z',fill:'#C8734A'},svg);
+  el('text',{x:48,y:500,'text-anchor':'middle',class:'lbl-th',style:'font-size:13px;fill:#C8734A'},svg,'ลงทะเบียน');
+
+  const taken=new Set();DATA.guests.forEach(g=>g.seats.forEach(s=>taken.add(g.table+'-'+s)));
+  const kids=new Set();DATA.guests.filter(g=>g.kid).forEach(g=>g.seats.forEach(s=>kids.add(g.table+'-'+s)));
+  DATA.tables.forEach(t=>{
+    const g=el('g',{class:'tg','data-t':t.id},svg), L=lab(t);
+    el('circle',{cx:t.x,cy:t.y,r:23,class:'tb'},g);
+    el('circle',{cx:t.x,cy:t.y,r:50,class:'ring',style:'display:none'},g);
+    if(L.startsWith('VIP')){
+      el('text',{x:t.x,y:t.y-7,class:'tb-name in',style:'font-size:10px'},g,'VIP');
+      el('text',{x:t.x,y:t.y+7,class:'tb-name in',style:'font-size:15px'},g,L.replace('VIP ',''));
+    } else el('text',{x:t.x,y:t.y+1,class:'tb-name in',style:'font-size:17px'},g,L);
+    for(const s of seatNums(t)){const[x,y]=seatPos(t,s);const k=t.id+'-'+s;
+      el('circle',{cx:x,cy:y,r:7.5,class:'ch'+(taken.has(k)?' taken':'')+(kids.has(k)?' kid':'')},g);}
+  });
+  el('g',{id:'me'},svg);
+  return svg;
+}
+const svg=buildPlan();
+document.getElementById('plan-scroll').appendChild(svg);
+
+/* ===== Helpers ===== */
+const norm=s=>String(s).toLowerCase().replace(/\s+/g,'').replace(/^(คุณ|k\.)/,'');
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function seatText(seats){
+  if(!seats.length) return '';
+  const s=[...seats].sort((a,b)=>a-b);
+  if(s.length>1 && s[s.length-1]-s[0]===s.length-1) return s[0]+'–'+s[s.length-1];
+  return s.join(', ');
+}
+
+/* ===== Search ===== */
+const q=document.getElementById('q'),list=document.getElementById('matches'),empty=document.getElementById('empty'),
+      result=document.getElementById('result'),clearBtn=document.getElementById('clear'),hint=document.getElementById('hint');
+q.addEventListener('input',()=>{
+  const raw=q.value.trim(), v=norm(raw); clearBtn.style.display=raw?'block':'none';
+  list.innerHTML='';empty.style.display='none';
+  if(!v){result.style.display='none';hint.style.display='block';return;}
+  hint.style.display='none';
+  const hits=DATA.guests.filter(g=>norm(g.name).includes(v) || g.name.toLowerCase().replace(/\s+/g,'').includes(raw.toLowerCase().replace(/\s+/g,'')));
+  if(!hits.length){empty.style.display='block';result.style.display='none';return;}
+  if(hits.length===1){show(hits[0]);return;}
+  result.style.display='none';
+  hits.slice(0,15).forEach(g=>{
+    const t=TBY[g.table];
+    const li=document.createElement('li'),b=document.createElement('button');
+    b.innerHTML=`<span>${esc(g.name)}${g.kid?' <em class="kid-tag">เด็ก</em>':''}<span class="sub">${t.name==='—'?'':esc(t.name)}</span></span><span class="tag">โต๊ะ ${esc(lab(t))}</span>`;
+    b.onclick=()=>{list.innerHTML='';show(g);};
+    li.appendChild(b);list.appendChild(li);
+  });
+});
+clearBtn.onclick=()=>{q.value='';q.dispatchEvent(new Event('input'));q.focus();};
+
+function show(g){
+  const t=TBY[g.table], L=lab(t);
+  document.getElementById('r-name').innerHTML=esc(g.name)+(g.kid?' <em class="kid-tag">เด็ก</em>':'');
+  const rt=document.getElementById('r-table'); rt.textContent=L; rt.style.fontSize=L.length>3?'26px':'';
+  document.getElementById('r-tname').textContent='โต๊ะกลม'+(t.name==='—'?'':' · '+t.name);
+  const sc=document.getElementById('r-seat-chip'), st=seatText(g.seats);
+  if(st){sc.style.display='';document.getElementById('r-seat').textContent=st;document.getElementById('r-seat').style.fontSize=st.length>4?'26px':'';}else sc.style.display='none';
+  document.getElementById('r-desc').textContent=g.seats.length?`เก้าอี้หมายเลข ${st} · เลข 1 อยู่ฝั่งตรงข้ามเวที นับวนตามเข็มนาฬิกา`:'ยังไม่ได้ระบุเลขที่นั่ง ทีมงานจะพาไปที่นั่งหน้างานค่ะ';
+  const note=document.getElementById('r-note');
+  if(STAFF&&g.note){note.style.display='block';note.textContent='สำหรับทีมงาน · '+g.note;}else note.style.display='none';
+  // plan
+  svg.querySelectorAll('.tg').forEach(n=>{const on=n.dataset.t===g.table;n.classList.toggle('hl',on);n.classList.toggle('dim',!on);n.querySelector('.ring').style.display=on?'':'none';});
+  const me=svg.getElementById('me');me.innerHTML='';
+  g.seats.forEach(s=>{const[x,y]=seatPos(t,s);el('circle',{cx:x,cy:y,r:9,class:'pulse'},me);el('circle',{cx:x,cy:y,r:9.5,class:'me-seat'},me);});
+  // mates
+  const mates=document.getElementById('mates');mates.innerHTML='';
+  const bySeat={};DATA.guests.filter(x=>x.table===g.table).forEach(x=>x.seats.forEach(s=>bySeat[s]=x));
+  const res={};DATA.reserved.filter(r=>r.table===g.table).forEach(r=>res[r.seat]=r.label);
+  document.getElementById('r-count').textContent=`${Object.keys(bySeat).length} / ${t.cap} ที่นั่ง`;
+  for(const s of seatNums(t)){
+    const x=bySeat[s],li=document.createElement('li');
+    if(x){ if(x===g) li.className='me'; li.innerHTML=`<b>${s}</b><span>${esc(x.name)}${x.kid?' <em class="kid-tag">เด็ก</em>':''}</span>`; }
+    else { li.className='vacant'; li.innerHTML=`<b style="background:#E8DADD">${s}</b><span>${esc(res[s]||'ว่าง')}</span>`; }
+    mates.appendChild(li);
+  }
+  DATA.guests.filter(x=>x.table===g.table&&!x.seats.length).forEach(x=>{const li=document.createElement('li');if(x===g)li.className='me';li.innerHTML=`<b>·</b><span>${esc(x.name)} <small>(ยังไม่มีเลขที่นั่ง)</small></span>`;mates.appendChild(li);});
+  setTab('plan');
+  result.style.display='block';
+  requestAnimationFrame(()=>{const sc=document.getElementById('plan-scroll');const ratio=sc.scrollWidth/VBW;sc.scrollTo({left:Math.max(0,t.x*ratio-sc.clientWidth/2),behavior:'smooth'});
+    result.scrollIntoView({behavior:'smooth',block:'start'});});
+  q.blur();
+}
+function setTab(name){document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.tab===name));
+  document.getElementById('tab-plan').style.display=name==='plan'?'':'none';document.getElementById('tab-mates').style.display=name==='mates'?'':'none';}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+</script>
+</body>
+</html>
