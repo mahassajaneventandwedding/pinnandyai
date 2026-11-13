@@ -106,6 +106,9 @@ section{padding:64px 0}
 .kid-tag{font-style:normal;font-size:11px;background:#F6EADB;color:#9A5A34;border-radius:999px;padding:1px 8px;margin-left:4px;vertical-align:2px}
 .mates li.me .kid-tag{background:#fff}
 .seat-desc{text-align:center;color:var(--muted);font-size:14px}
+.staff-tools{display:none;text-align:center;margin-top:16px}
+.staff-tools a{display:inline-flex;align-items:center;gap:8px;background:var(--plum);color:#fff;text-decoration:none;border-radius:999px;padding:11px 22px;font-size:14px}
+.staff-tools small{display:block;color:var(--muted);font-size:12px;margin-top:6px}
 .staff-note{display:none;margin-top:12px;background:#FFF6EF;border:1px solid #F1D9C6;color:#8A4D2C;border-radius:12px;padding:10px 14px;font-size:13.5px}
 .tabs{display:flex;background:var(--blush);border-radius:999px;padding:4px;margin:20px 0 16px}
 .tabs button{flex:1;border:0;background:transparent;border-radius:999px;padding:10px 6px;font-family:'Prompt';font-size:14.5px;color:var(--plum);cursor:pointer;font-weight:300}
@@ -261,6 +264,7 @@ footer p{font-size:12.5px;opacity:.9;margin-top:22px;line-height:1.7}
       <button class="clear" id="clear" aria-label="ล้าง">✕</button>
     </div>
     <div class="hint" id="hint">พิมพ์แค่บางส่วนก็เจอ ถ้ามีชื่อซ้ำ เลือกจากรายการได้เลย</div>
+    <div class="staff-tools" id="staff-tools"><a href="plan.html" target="_blank" rel="noopener">⬇ Export ผังโต๊ะ (PDF)</a><small>สำหรับทีมงาน · เปิดอาร์ตเวิร์กผังโต๊ะพร้อมรายชื่อ ขนาด A3</small></div>
     <ul class="matches" id="matches"></ul>
     <div class="empty" id="empty" style="display:none">ยังไม่พบชื่อนี้ ลองพิมพ์ชื่อเล่น ชื่อจริง หรือชื่อภาษาอังกฤษอีกครั้ง<br>หรือติดต่อทีม Mahassajan ที่โต๊ะลงทะเบียนได้เลยค่ะ</div>
 
@@ -467,6 +471,7 @@ footer p{font-size:12.5px;opacity:.9;margin-top:22px;line-height:1.7}
 <script>
 const DATA = JSON.parse(document.getElementById('seat-data').textContent);
 const STAFF = location.hash==='#staff';
+if(STAFF) document.getElementById('staff-tools').style.display='block';
 
 /* ===== Plan geometry: Rin at Raintree lawn (from hotel plan 13.11.26 K.Pinn K.Yai, 350 pax) ===== */
 const VBW=1300, VBH=1060;
